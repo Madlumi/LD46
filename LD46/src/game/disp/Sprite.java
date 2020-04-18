@@ -11,10 +11,10 @@ public class Sprite {
 	private  int x,y;
 	public int pix[];
 	//sheets
-	public Sheet testsht = new Sheet(128, "test");
+	public static Sheet testsht = new Sheet(128, "res/test.png");
 	
 	//sprites
-	public Sprite testspr = new Sprite(32,0,0, testsht);
+	public static Sprite testspr = new Sprite(32,0,0, testsht);
 	
 	
 	public Sprite(int size, int x, int y, Sheet s) {

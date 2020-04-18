@@ -28,6 +28,9 @@ public class Screen {
 		}
 		return false;
 	}
+	private void setPix(int x, int y, int col) {
+		if(inBounds(x, y))pix[x+y*W]=col;
+	}
 	private void setPix(int x, int y, int r,int g, int b) {
 		if(inBounds(x, y))pix[x+y*W]=r;
 	}
@@ -41,6 +44,15 @@ public class Screen {
 				setPix(x+xx,y+yy,r,b,g);
 			}	
 		}
+		
+	}
+	public void drawSprite(int x, int y, Sprite spr) {
+		int w = spr.w;
+		int h= spr.h;
+		for(int xx= 0; xx< w;xx++) {for(int yy= 0; yy< h;yy++) {
+			if(spr.pix[xx+yy*w]!=0xffff00ff)setPix(x+xx,y+yy,spr.pix[xx+yy*w]);
+		}	
+	}
 		
 	}
 	

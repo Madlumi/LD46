@@ -12,7 +12,7 @@ public class Sheet {
 	public int w,h;
 	public int pix[];
 	
-	public Sheet s = new Sheet(32, "test");
+	//public Sheet s = new Sheet(32, "test");
 	
 	public Sheet(int size, String path) {
 		this(size,size,path);
@@ -26,6 +26,7 @@ public class Sheet {
 	
 	private void load(String path){
 		File f = new File(path);
+		System.out.println(f.getPath());
 		try {
 			BufferedImage im = ImageIO.read(f);
 

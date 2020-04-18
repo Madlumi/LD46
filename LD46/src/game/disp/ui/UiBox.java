@@ -1,6 +1,7 @@
 package game.disp.ui;
 
 import game.disp.Screen;
+import game.disp.Sprite;
 
 public class UiBox extends UiElement{
 
@@ -10,6 +11,7 @@ public class UiBox extends UiElement{
 	
 	public void render(Screen s){
 		s.drawBox(x,y,w,h,255,255,255);
+		s.drawSprite(x,y,Sprite.testspr);
 		//System.out.println("aaa");
 	}
 
