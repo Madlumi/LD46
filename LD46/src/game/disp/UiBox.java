@@ -8,6 +8,7 @@ public class UiBox extends UiElement{
 	
 	public void render(Screen s){
 		s.drawBox(x,y,w,h,255,255,255);
+		//System.out.println("aaa");
 	}
 
 }

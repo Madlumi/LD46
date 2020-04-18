@@ -38,7 +38,7 @@ public class Screen {
 	
 	public void drawBox(int x, int y, int w, int h, int r, int g, int b) {
 		for(int xx= 0; xx< w;xx++) {for(int yy= 0; yy< h;yy++) {
-				
+				setPix(x+xx,y+yy,r,b,g);
 			}	
 		}
 		
