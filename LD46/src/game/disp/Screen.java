@@ -55,5 +55,14 @@ public class Screen {
 	}
 		
 	}
+	public void clear() {
+		Random R = new Random();
+		for(int i = 0; i < W*H;i++) {
+			pix[i]= 
+					//R.nextInt(255)<<16+
+					R.nextInt(255)<<8;
+					//R.nextInt(255);
+		}
+	}
 	
 }

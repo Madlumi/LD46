@@ -14,7 +14,7 @@ public class Sprite {
 	public static Sheet testsht = new Sheet(128, "res/test.png");
 	
 	//sprites
-	public static Sprite testspr = new Sprite(32,0,0, testsht);
+	public static Sprite testspr = new Sprite(16,0,0, testsht);
 	
 	
 	public Sprite(int size, int x, int y, Sheet s) {

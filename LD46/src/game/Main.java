@@ -25,6 +25,7 @@ public class Main extends Canvas implements Runnable{
 	public static 	Main m = new Main();
 	public static 	Screen sc;
 	public static 	Ui ui;
+	public static  	Map map; 
 	public static void main(String[] args) {
 		System.out.println("HELLLOOOOOOOO WORRRRRRRRRLD");
 
@@ -46,15 +47,18 @@ public class Main extends Canvas implements Runnable{
 		m.frame.setMinimumSize(new Dimension(W*S, H*S));
 		sc = new Screen(W,H);
 		ui=new Ui(sc);
+		map=new Map(128, 128, "res/maps/map1.png", 16);
 		m.run();
 		
 	}
 
 	public int gamestate = 0;
-	
+	int j=5;
 	public void render() {
+		sc.clear();
 		
 		//render functions here
+		map.render(j, 0, sc);
 		ui.render();
 
 		BufferStrategy bs = getBufferStrategy();
@@ -82,9 +86,37 @@ public class Main extends Canvas implements Runnable{
 	}
 	public void run() {
 		boolean running = true;
-		
+		long lastTime = System.nanoTime();
+		long timer =  System.currentTimeMillis();
+		final double ns = 1000000000.0 / 60.0;
+		double delta = 0;
+		int frames = 0;
 		while(running) {
+			
+			
+			
+			long now = System.nanoTime();
+			delta += (now - lastTime) / ns;
+			lastTime = now;
+			while (delta >= 1){
+				//tick();
+				j++;
+				delta --;
+				
+			}
+			frames++;
+			if (System.currentTimeMillis() - timer > 1000){
+				timer += 1000;
+				
+				//System.out.println("Ups" + ticks +"; Fps"+ frames);
+				//ups = ticks;
+				//fps = frames;
+				//ticks = 0;
+				frames = 0;
+			}
+			
 			render();
+			
 		}
 	}
 
