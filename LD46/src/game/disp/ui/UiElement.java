@@ -1,4 +1,6 @@
-package game.disp;
+package game.disp.ui;
+
+import game.disp.Screen;
 
 public abstract class UiElement {
 	public int x, y, w, h;

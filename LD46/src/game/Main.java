@@ -11,7 +11,7 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import game.disp.Screen;
-import game.disp.Ui;
+import game.disp.ui.Ui;
 
 
 public class Main extends Canvas implements Runnable{

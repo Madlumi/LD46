@@ -1,4 +1,6 @@
-package game.disp;
+package game.disp.ui;
+
+import game.disp.Screen;
 
 public class UiBox extends UiElement{
 

@@ -1,6 +1,8 @@
-package game.disp;
+package game.disp.ui;
 
 import java.util.ArrayList;
+
+import game.disp.Screen;
 
 public class Ui {
 	ArrayList<UiElement> ele = new ArrayList<UiElement>();
