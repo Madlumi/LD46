@@ -15,6 +15,7 @@ public class Sprite {
 	
 	//sprites
 	public static Sprite testspr = new Sprite(16,0,0, testsht);
+	public static Sprite testgrd = new Sprite(16,16,0, testsht);
 	
 	
 	public Sprite(int size, int x, int y, Sheet s) {

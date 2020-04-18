@@ -6,12 +6,14 @@ public class Screen {
 
 	public int[] pix;
 	private int W,H;
+	public int xo=0, yo=0;
 	
 	public Screen(int w, int h) {
 		pix = new int[w*h];
 		W=w;
 		H=h;
-		
+		xo=0;
+		yo=0;
 		Random R = new Random();
 		for(int i = 0; i < W*H;i++) {
 			pix[i]= 

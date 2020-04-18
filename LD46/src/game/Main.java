@@ -11,7 +11,11 @@ import java.awt.image.DataBufferInt;
 import javax.swing.JFrame;
 
 import game.disp.Screen;
+import game.disp.Sprite;
 import game.disp.ui.Ui;
+import game.in.Keyboard;
+import game.in.Mouse;
+import game.obj.Player;
 
 
 public class Main extends Canvas implements Runnable{
@@ -26,6 +30,9 @@ public class Main extends Canvas implements Runnable{
 	public static 	Screen sc;
 	public static 	Ui ui;
 	public static  	Map map; 
+	public static Player pl;
+	
+	
 	public static void main(String[] args) {
 		System.out.println("HELLLOOOOOOOO WORRRRRRRRRLD");
 
@@ -47,6 +54,7 @@ public class Main extends Canvas implements Runnable{
 		m.frame.setMinimumSize(new Dimension(W*S, H*S));
 		sc = new Screen(W,H);
 		ui=new Ui(sc);
+		pl=new Player(48, 80, Sprite.testspr);
 		map=new Map(128, 128, "res/maps/map1.png", 16);
 		m.run();
 		
@@ -58,7 +66,8 @@ public class Main extends Canvas implements Runnable{
 		sc.clear();
 		
 		//render functions here
-		map.render(j, 0, sc);
+		map.render(sc.xo, sc.yo, sc);
+		pl.render(sc);
 		ui.render();
 
 		BufferStrategy bs = getBufferStrategy();
@@ -84,6 +93,8 @@ public class Main extends Canvas implements Runnable{
 		bs.show();
 		
 	}
+	public static Keyboard key;
+	public static Mouse mouse;
 	public void run() {
 		boolean running = true;
 		long lastTime = System.nanoTime();
@@ -91,6 +102,16 @@ public class Main extends Canvas implements Runnable{
 		final double ns = 1000000000.0 / 60.0;
 		double delta = 0;
 		int frames = 0;
+		
+		mouse = new Mouse();
+		addMouseMotionListener(mouse);
+		addFocusListener(mouse);
+		addMouseListener(mouse);
+		addMouseWheelListener(mouse);
+		
+		key = new Keyboard();
+		addKeyListener(key);
+		
 		while(running) {
 			
 			
@@ -100,8 +121,9 @@ public class Main extends Canvas implements Runnable{
 			lastTime = now;
 			while (delta >= 1){
 				//tick();
-				j++;
-				delta --;
+				pl.tick();
+				key.tick();
+				delta--;
 				
 			}
 			frames++;

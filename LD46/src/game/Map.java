@@ -27,7 +27,7 @@ public class Map extends Sheet{
 				int ry=yy;
 				
 				if(rx>=0&&ry>=0&& rx<w && ry<h) {
-					if(getTile(rx,ry)==0xff000000)s.drawSprite(xx*ts-x%ts, yy*ts-y%ts, Sprite.testspr);
+					if(getTile(rx,ry)==0xff000000)s.drawSprite(xx*ts-x%ts, yy*ts-y%ts, Sprite.testgrd);
 				}
 				
 			}
